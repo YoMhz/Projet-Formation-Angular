@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   title = 'learn-angular-pokemon';
   // pokemonList = ['Bulbizarre', 'Salamèche', 'Carapuce'];
   pokemonList: Pokemon[] = POKEMONS;
+  pokemonSelected: Pokemon;
   
 
   //Rajouter this pour que pour que pokemonList entre dans le scope de mon console table.
@@ -37,8 +38,14 @@ export class AppComponent implements OnInit {
 
   //Modification de la fonction selectPokemon pour que l'utilisateur écrive dans un input text un nombre pour qu'il puisse récupérer le pokémon choisi.
   // dans const index le "+" signifie que je modifie une string en nombre (genre de ParseInt). On mentionne les éléments du DOM pour l'intéraction de input et de l'index.
-  selectPokemon(event : MouseEvent) {
-    const index: number = +(event.target as HTMLInputElement).value;
-    console.log(`Vous avez cliqué sur le pokémon ${this.pokemonList[index].name}`);
+
+  // selectPokemon(event : MouseEvent) {
+  //   const index: number = +(event.target as HTMLInputElement).value;
+  //   console.log(`Vous avez cliqué sur le pokémon ${this.pokemonList[index].name}`);
+  // }
+
+  selectPokemon(pokemonId: string) {
+    const id = +pokemonId;
+    console.log(`Vous avez cliqué sur le pokémon ${this.pokemonList[id].name}`)
   }
 }
