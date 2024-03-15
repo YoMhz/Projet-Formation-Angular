@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { POKEMONS } from './mock-pokemon-list';
 import { Pokemon } from './pokemon';
+import { CommonModule } from '@angular/common';
 
 
 // Rendu de la vue
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styles: [],
 })
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
   title = 'learn-angular-pokemon';
   // pokemonList = ['Bulbizarre', 'Salamèche', 'Carapuce'];
   pokemonList: Pokemon[] = POKEMONS;
-  pokemonSelected: Pokemon;
+  pokemonSelected: Pokemon|undefined;
   
 
   //Rajouter this pour que pour que pokemonList entre dans le scope de mon console table.
@@ -45,7 +46,14 @@ export class AppComponent implements OnInit {
   // }
 
   selectPokemon(pokemonId: string) {
-    const id = +pokemonId;
-    console.log(`Vous avez cliqué sur le pokémon ${this.pokemonList[id].name}`)
+    const pokemon: Pokemon|undefined = this.pokemonList.find(pokemon => pokemon.id == +pokemonId)
+    //Condition de message de rendu :
+    if(pokemon){
+      console.log(`Vous avez demandé le pokémon ${pokemon.name}`);
+      this.pokemonSelected = pokemon;
+    } else {
+      console.log(`Ce pokémon n'existe pas !`);
+      this.pokemonSelected = pokemon;
+    }
   }
 }
