@@ -3,13 +3,14 @@ import { RouterOutlet } from '@angular/router';
 import { POKEMONS } from './mock-pokemon-list';
 import { Pokemon } from './pokemon';
 import { CommonModule } from '@angular/common';
+import { BorderCardDirective } from './border-card.directive';
 
 
 // Rendu de la vue
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, BorderCardDirective],
   templateUrl: './app.component.html',
   styles: [],
 })
