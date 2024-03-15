@@ -9,11 +9,7 @@ import { Pokemon } from './pokemon';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  template: `
-    <h1>Liste de Pokémons</h1>
-
-    <router-outlet />
-  `,
+  templateUrl: './app.component.html',
   styles: [],
 })
 
@@ -30,12 +26,19 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.table(this.pokemonList);
-    this.selectPokemon(this.pokemonList[0]);
+    // this.selectPokemon(this.pokemonList[0]);
   }
 
   //fonction pour évènement click de l'utilisateur avec en paramètre pokémonName.
 
-  selectPokemon(pokemon : Pokemon) {
-    console.log(`Vous avez cliqué sur le pokémon ${pokemon.name}`);
+  // selectPokemon(pokemon : Pokemon) {
+  //   console.log(`Vous avez cliqué sur le pokémon ${pokemon.name}`);
+  // }
+
+  //Modification de la fonction selectPokemon pour que l'utilisateur écrive dans un input text un nombre pour qu'il puisse récupérer le pokémon choisi.
+  // dans const index le "+" signifie que je modifie une string en nombre (genre de ParseInt). On mentionne les éléments du DOM pour l'intéraction de input et de l'index.
+  selectPokemon(event : MouseEvent) {
+    const index: number = +(event.target as HTMLInputElement).value;
+    console.log(`Vous avez cliqué sur le pokémon ${this.pokemonList[index].name}`);
   }
 }
