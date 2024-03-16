@@ -1,4 +1,4 @@
-<p *ngIf="pokemon">Voici la carte de {{pokemon.name}}</p>
+<!-- <p *ngIf="pokemon">Voici la carte de {{pokemon.name}}</p> -->
 <div *ngIf="pokemon" class="row">
     <div class="col s12 m8 offset-m2">
     <h2 class="header center">{{ pokemon.name }}</h2>
@@ -36,8 +36,7 @@
           </table>
         </div>
         <div class="card-action">
-          <!-- <a (click)="goBack()">Retour</a> -->
-          <a>Retour</a>
+          <a (click)="backToPokemonList()">Retour</a>
         </div>
       </div>
     </div>
