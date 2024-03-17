@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgFor, DatePipe} from '@angular/common';
 import { Router } from '@angular/router';
 import { POKEMONS } from '../mock-pokemon-list';
 import { Pokemon } from '../pokemon';
@@ -9,7 +9,7 @@ import { BorderCardDirective } from '../border-card.directive';
 @Component({
   selector: 'app-list-pokemon',
   standalone: true,
-  imports: [PokemonTypeColorPipe, CommonModule, BorderCardDirective],
+  imports: [PokemonTypeColorPipe, NgFor, DatePipe, BorderCardDirective],
   templateUrl: './list-pokemon.component.html',
   styles: ``
 })

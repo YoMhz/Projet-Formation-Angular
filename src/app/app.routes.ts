@@ -6,8 +6,12 @@ import { PageNotFoundComponent } from './page-note-found/page-note-found.compone
 // Angular lit les route du haut vers le bas il y à un sens !!
 
 export const routes: Routes = [
-    {path: 'pokemons', component: ListPokemonComponent},
+    {path: 'pokemons', title: 'Pokédex', component: ListPokemonComponent},
     {path: 'pokemon/:id', component: DetailPokemonComponent},
     {path: '', redirectTo: 'pokemons', pathMatch: "full"},
-    {path: '**', component: PageNotFoundComponent},
+    {
+        path: '**',
+        title: 'Erreur',
+        loadComponent: () => import("./page-note-found/page-note-found.component").then(module => module.PageNotFoundComponent)
+    },
 ];
