@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgFor, DatePipe} from '@angular/common';
+import { NgFor, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { POKEMONS } from '../mock-pokemon-list';
 import { Pokemon } from '../pokemon';
